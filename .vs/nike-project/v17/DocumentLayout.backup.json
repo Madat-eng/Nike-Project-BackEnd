@@ -32,7 +32,7 @@
               "RelativeDocumentMoniker": "API\\Controllers\\UserController.cs",
               "ToolTip": "D:\\Nike Project\\Back-End\\nike-project\\API\\Controllers\\UserController.cs",
               "RelativeToolTip": "API\\Controllers\\UserController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAATAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAABAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-21T15:55:34.822Z",
               "EditorCaption": ""
@@ -47,8 +47,7 @@
               "RelativeToolTip": "BAL\\UserBusiness.cs",
               "ViewState": "AgIAAAEAAAAAAAAAAAAYwAwAAAAGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-21T15:53:03.903Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-21T15:53:03.903Z"
             },
             {
               "$type": "Document",
@@ -60,8 +59,7 @@
               "RelativeToolTip": "DAL\\UserData.cs",
               "ViewState": "AgIAABcAAAAAAAAAAAAAwCIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-21T15:45:05.878Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-06-21T15:45:05.878Z"
             }
           ]
         }
