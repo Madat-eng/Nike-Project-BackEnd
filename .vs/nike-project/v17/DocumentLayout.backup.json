@@ -1,0 +1,71 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Nike Project\\Back-End\\nike-project\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{D684D8E2-FB26-499F-BE94-1213BFBF6590}|API\\API.csproj|d:\\nike project\\back-end\\nike-project\\api\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D684D8E2-FB26-499F-BE94-1213BFBF6590}|API\\API.csproj|solutionrelative:api\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FBEFFF81-3BC7-4F7C-92C2-8905A1F396BB}|BAL\\BAL.csproj|d:\\nike project\\back-end\\nike-project\\bal\\userbusiness.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FBEFFF81-3BC7-4F7C-92C2-8905A1F396BB}|BAL\\BAL.csproj|solutionrelative:bal\\userbusiness.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{69E3E019-341B-46A7-95C4-DC57843821BF}|DAL\\DAL.csproj|d:\\nike project\\back-end\\nike-project\\dal\\userdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{69E3E019-341B-46A7-95C4-DC57843821BF}|DAL\\DAL.csproj|solutionrelative:dal\\userdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "UserController.cs",
+              "DocumentMoniker": "D:\\Nike Project\\Back-End\\nike-project\\API\\Controllers\\UserController.cs",
+              "RelativeDocumentMoniker": "API\\Controllers\\UserController.cs",
+              "ToolTip": "D:\\Nike Project\\Back-End\\nike-project\\API\\Controllers\\UserController.cs",
+              "RelativeToolTip": "API\\Controllers\\UserController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-21T15:55:34.822Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "UserBusiness.cs",
+              "DocumentMoniker": "D:\\Nike Project\\Back-End\\nike-project\\BAL\\UserBusiness.cs",
+              "RelativeDocumentMoniker": "BAL\\UserBusiness.cs",
+              "ToolTip": "D:\\Nike Project\\Back-End\\nike-project\\BAL\\UserBusiness.cs",
+              "RelativeToolTip": "BAL\\UserBusiness.cs",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAYwAwAAAAGAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-21T15:53:03.903Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "UserData.cs",
+              "DocumentMoniker": "D:\\Nike Project\\Back-End\\nike-project\\DAL\\UserData.cs",
+              "RelativeDocumentMoniker": "DAL\\UserData.cs",
+              "ToolTip": "D:\\Nike Project\\Back-End\\nike-project\\DAL\\UserData.cs",
+              "RelativeToolTip": "DAL\\UserData.cs",
+              "ViewState": "AgIAABcAAAAAAAAAAAAAwCIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-21T15:45:05.878Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

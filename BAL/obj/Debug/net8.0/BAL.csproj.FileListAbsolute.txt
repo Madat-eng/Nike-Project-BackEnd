@@ -1,0 +1,15 @@
+D:\Nike Project\Back-End\nike-project\BAL\bin\Debug\net8.0\BAL.deps.json
+D:\Nike Project\Back-End\nike-project\BAL\bin\Debug\net8.0\BAL.dll
+D:\Nike Project\Back-End\nike-project\BAL\bin\Debug\net8.0\BAL.pdb
+D:\Nike Project\Back-End\nike-project\BAL\obj\Debug\net8.0\BAL.GeneratedMSBuildEditorConfig.editorconfig
+D:\Nike Project\Back-End\nike-project\BAL\obj\Debug\net8.0\BAL.AssemblyInfoInputs.cache
+D:\Nike Project\Back-End\nike-project\BAL\obj\Debug\net8.0\BAL.AssemblyInfo.cs
+D:\Nike Project\Back-End\nike-project\BAL\obj\Debug\net8.0\BAL.csproj.CoreCompileInputs.cache
+D:\Nike Project\Back-End\nike-project\BAL\obj\Debug\net8.0\BAL.dll
+D:\Nike Project\Back-End\nike-project\BAL\obj\Debug\net8.0\refint\BAL.dll
+D:\Nike Project\Back-End\nike-project\BAL\obj\Debug\net8.0\BAL.pdb
+D:\Nike Project\Back-End\nike-project\BAL\obj\Debug\net8.0\ref\BAL.dll
+D:\Nike Project\Back-End\nike-project\BAL\bin\Debug\net8.0\DAL.dll
+D:\Nike Project\Back-End\nike-project\BAL\bin\Debug\net8.0\DAL.pdb
+D:\Nike Project\Back-End\nike-project\BAL\obj\Debug\net8.0\BAL.csproj.AssemblyReference.cache
+D:\Nike Project\Back-End\nike-project\BAL\obj\Debug\net8.0\BAL.csproj.Up2Date
