@@ -29,7 +29,7 @@ namespace DAL.DTOs
         /// <summary>  
         /// Gets or sets the unique identifier for the user.  
         /// </summary>  
-        public int UserID { get; set; }
+        public int UserID { get; set; } = 0;
 
         /// <summary>  
         /// Gets or sets the associated person details of the user.  

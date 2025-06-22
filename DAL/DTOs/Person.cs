@@ -35,7 +35,7 @@ namespace DAL.DTOs
         /// <summary>  
         /// Gets or sets the unique identifier for the person.  
         /// </summary>  
-        public int PersonID { get; set; }
+        public int PersonID { get; set; } = 0;
 
         /// <summary>  
         /// Gets or sets the first name of the person.  
