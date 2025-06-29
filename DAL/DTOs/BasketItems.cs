@@ -47,4 +47,28 @@ namespace DAL.DTOs
         /// </summary>
         public int Quantity { get; set; }
     }
+
+
+    /// <summary>
+    /// DTO used for creating a new basket item (simplified, only BasketID and ProductID are required).
+    /// </summary>
+    public class DTOBasketItems_Create
+    {
+        public int BasketID { get; set; }
+        public int ProductID { get; set; }
+        public int Quantity { get; set; }
+    }
+
+    public class DTOBasketItems_Update
+    {
+        public DTOBasketItems_Update(int basketItemID, int quantity)
+        {
+            BasketItemID = basketItemID;
+            Quantity = quantity;
+        }
+
+        public int BasketItemID { get; set; }
+        public int Quantity { get; set; }
+    }
+
 }

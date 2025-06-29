@@ -40,4 +40,16 @@ namespace DAL.DTOs
         /// </summary>
         public DateTime AddedAt { get; set; }
     }
+
+    public class DTOBasket_CreatBasket
+    {
+        public DTOBasket_CreatBasket(int userID, DateTime addedAt)
+        {
+            UserID = userID;
+            AddedAt = addedAt;
+        }
+
+        public int UserID { get; set; } // The ID of the user creating the basket
+       public DateTime AddedAt { get; set; } // The date and time when the basket is created
+    }
 }

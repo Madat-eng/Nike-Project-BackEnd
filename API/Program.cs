@@ -6,6 +6,17 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container
 builder.Services.AddControllers();
 
+// ===== ≈÷«›… CORS Â‰« =====
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll", policy =>
+    {
+        policy.AllowAnyOrigin()  // «·”„«Õ ·√Ì „’œ— (›Ì «·»Ì∆… «· ‰„ÊÌ… ›ﬁÿ)
+              .AllowAnyMethod()  // «·”„«Õ »Ã„Ì⁄ ÿ—ﬁ HTTP (GET, POST, etc.)
+              .AllowAnyHeader(); // «·”„«Õ »Ã„Ì⁄ «·‹ Headers
+    });
+});
+
 // Configure API Versioning
 builder.Services.AddApiVersioning(options =>
 {
@@ -25,11 +36,13 @@ builder.Services.AddVersionedApiExplorer(options =>
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(options =>
 {
-    // Optional: Configure Swagger to show API versions
     options.SwaggerDoc("v1", new() { Title = "API v1", Version = "1.0" });
 });
 
 var app = builder.Build();
+
+// =====  „ﬂÌ‰ CORS Middleware Â‰« =====
+app.UseCors("AllowAll"); // ÌÃ» Ê÷⁄Â ﬁ»· UseRouting/UseEndpoints
 
 // Configure the HTTP request pipeline
 if (app.Environment.IsDevelopment())

@@ -56,5 +56,43 @@ namespace BAL
                 throw new ApplicationException($"Service error while deleting product with ID {productId}.", ex);
             }
         }
+
+        public static List<DTOProduct> GetAllProducts()
+        {
+            try
+            {
+                var products = ProductData.GetAllProducts();
+                return products;
+            }
+            catch (Exception ex)
+            {
+                throw new ApplicationException("Service error while fetching all products.", ex);
+            }
+        }
+        public static List<DTOProduct> GetRandomProducts(int count)
+        {
+            try
+            {
+                var products = ProductData.GetRandomProducts(count);
+                return products;
+            }
+            catch (Exception ex)
+            {
+                throw new ApplicationException($"Service error while fetching {count} random products.", ex);
+            }
+        }
+
+        public static List<DTOProduct> GetAllProductsByCategory(string categoryName)
+        {
+            try
+            {
+                var products = ProductData.GetAllProductsByCategory(categoryName);
+                return products;
+            }
+            catch (Exception ex)
+            {
+                throw new ApplicationException($"Service error while fetching products by category '{categoryName}'.", ex);
+            }
+        }
     }
 }

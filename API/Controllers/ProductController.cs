@@ -79,5 +79,55 @@ namespace API.Controllers
                 return StatusCode(500, new { message = ex.Message });
             }
         }
+
+        [HttpGet("GetAll")]
+        [ProducesResponseType(typeof(List<DTOProduct>), 200)]
+        [ProducesResponseType(typeof(string), 500)]
+        public IActionResult GetAllProducts()
+        {
+            try
+            {
+                var products = ProductBusiness.GetAllProducts();
+                return Ok(products);
+            }
+            catch (ApplicationException ex)
+            {
+                return StatusCode(500, new { message = ex.Message });
+            }
+        }
+
+        [HttpGet("Random/{count}")]
+        [ProducesResponseType(typeof(List<DTOProduct>), 200)]
+        [ProducesResponseType(typeof(string), 500)]
+        public IActionResult GetRandomProducts(int count)
+        {
+            try
+            {
+                var products = ProductBusiness.GetRandomProducts(count);
+                return Ok(products);
+            }
+            catch (ApplicationException ex)
+            {
+                return StatusCode(500, new { message = ex.Message });
+            }
+        }
+
+
+        [HttpGet("ByCategory/{categoryName}")]
+        [ProducesResponseType(typeof(List<DTOProduct>), 200)]
+        [ProducesResponseType(typeof(string), 500)]
+        public IActionResult GetAllProductsByCategory(string categoryName)
+        {
+            try
+            {
+                var products = ProductBusiness.GetAllProductsByCategory(categoryName);
+                return Ok(products);
+            }
+            catch (ApplicationException ex)
+            {
+                return StatusCode(500, new { message = ex.Message });
+            }
+        }
+
     }
 }

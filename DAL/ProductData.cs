@@ -119,6 +119,124 @@ namespace DAL
                 throw new Exception("An error occurred while deleting the product.", ex);
             }
         }
+
+        public static List<DTOProduct> GetAllProducts()
+        {
+            List<DTOProduct> products = new List<DTOProduct>();
+
+            using SqlConnection conn = new SqlConnection(setting.Connection);
+            using SqlCommand cmd = new SqlCommand("SP_GetAllProduct", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            try
+            {
+                conn.Open();
+                using SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    DTOProduct product = new DTOProduct(
+                        productID: reader.GetInt32(reader.GetOrdinal("ProductID")),
+                        name: reader.GetString(reader.GetOrdinal("Name")),
+                        price: reader.GetDecimal(reader.GetOrdinal("Price")),
+                        availablePiece: reader.GetInt32(reader.GetOrdinal("AvailablePiece")),
+                        description: reader.GetString(reader.GetOrdinal("Description")),
+                        category: new DTOCategory(
+                            categoryID: reader.GetInt32(reader.GetOrdinal("CategoryID")),
+                            categoryName: reader.GetString(reader.GetOrdinal("CategoryName"))
+                        ),
+                        imageURL: reader.GetString(reader.GetOrdinal("ImageURL")),
+                        title: reader.GetString(reader.GetOrdinal("Title"))
+                    );
+
+                    products.Add(product);
+                }
+
+                return products;
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception("An error occurred while retrieving products.", ex);
+            }
+        }
+
+        public static List<DTOProduct> GetRandomProducts(int count)
+        {
+            List<DTOProduct> products = new List<DTOProduct>();
+
+            using SqlConnection conn = new SqlConnection(setting.Connection);
+            using SqlCommand cmd = new SqlCommand("SP_GetRandomProducts", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@Count", count);
+
+            try
+            {
+                conn.Open();
+                using SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    DTOProduct product = new DTOProduct(
+                        productID: reader.GetInt32(reader.GetOrdinal("ProductID")),
+                        name: reader.GetString(reader.GetOrdinal("Name")),
+                        price: reader.GetDecimal(reader.GetOrdinal("Price")),
+                        availablePiece: reader.GetInt32(reader.GetOrdinal("AvailablePiece")),
+                        description: reader.GetString(reader.GetOrdinal("Description")),
+                        category: new DTOCategory(
+                            categoryID: reader.GetInt32(reader.GetOrdinal("CategoryID")),
+                            categoryName: reader.GetString(reader.GetOrdinal("CategoryName"))
+                        ),
+                        imageURL: reader.GetString(reader.GetOrdinal("ImageURL")),
+                        title: reader.GetString(reader.GetOrdinal("Title"))
+                    );
+
+                    products.Add(product);
+                }
+
+                return products;
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception("An error occurred while retrieving random products.", ex);
+            }
+        }
+
+        public static List<DTOProduct> GetAllProductsByCategory(string categoryName)
+        {
+            List<DTOProduct> products = new List<DTOProduct>();
+
+            using SqlConnection conn = new SqlConnection(setting.Connection);
+            using SqlCommand cmd = new SqlCommand("SP_GetAllProductByCategorie", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@CategoryName", categoryName);
+
+            try
+            {
+                conn.Open();
+                using SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    DTOProduct product = new DTOProduct(
+                        productID: reader.GetInt32(reader.GetOrdinal("ProductID")),
+                        name: reader.GetString(reader.GetOrdinal("Name")),
+                        price: reader.GetDecimal(reader.GetOrdinal("Price")),
+                        availablePiece: reader.GetInt32(reader.GetOrdinal("AvailablePiece")),
+                        description: reader.GetString(reader.GetOrdinal("Description")),
+                        category: new DTOCategory(
+                            categoryID: reader.GetInt32(reader.GetOrdinal("CategoryID")),
+                            categoryName: reader.GetString(reader.GetOrdinal("CategoryName"))
+                        ),
+                        imageURL: reader.GetString(reader.GetOrdinal("ImageURL")),
+                        title: reader.GetString(reader.GetOrdinal("Title"))
+                    );
+
+                    products.Add(product);
+                }
+                return products;
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception("An error occurred while retrieving products by category.", ex);
+            }
+        }
     }
 }
 
