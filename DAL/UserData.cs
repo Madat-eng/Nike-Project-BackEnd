@@ -47,7 +47,7 @@ namespace DAL
             }
         }
 
-        public static (bool,int, int) CreateUser(DTOUser user)
+        public static (bool, int, int) CreateUser(DTOUser user)
         {
             using SqlConnection conn = new SqlConnection(setting.Connection);
             using SqlCommand cmd = new SqlCommand("SP_CreateUser", conn);
@@ -87,7 +87,7 @@ namespace DAL
                 user.Person.PersonID = newPersonID;
                 user.UserID = newUserID;
 
-                return (rowsAffected > 0,newPersonID ,newUserID);
+                return (rowsAffected > 0, newPersonID, newUserID);
             }
             catch (SqlException ex)
             {
@@ -141,6 +141,73 @@ namespace DAL
             catch (SqlException ex)
             {
                 throw new Exception("An error occurred while deleting the user.", ex);
+            }
+        }
+
+        public static DTOUserCreated CreateUser(DTOUserSignUp user)
+        {
+            using SqlConnection conn = new SqlConnection(setting.Connection);
+            using SqlCommand cmd = new SqlCommand("SP_CreateUser_SignUp", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("@FullName", user.FullName);
+            cmd.Parameters.AddWithValue("@Email", user.Email);
+            cmd.Parameters.AddWithValue("@Password", user.Password);
+
+            try
+            {
+                conn.Open();
+                using SqlDataReader reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    return new DTOUserCreated
+                    {
+                        PersonID = reader.GetInt32(reader.GetOrdinal("PersonID")),
+                        Email = reader.GetString(reader.GetOrdinal("Email"))
+                    };
+                }
+                else
+                {
+                    throw new Exception("Unexpected error: No data returned from stored procedure.");
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception("An error occurred while creating the user.", ex);
+            }
+        }
+
+
+        public static DTOUserLoginResult Login(DTOUserLogin user)
+        {
+            using SqlConnection conn = new SqlConnection(setting.Connection);
+            using SqlCommand cmd = new SqlCommand("SP_Login", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("@Email", user.Email);
+            cmd.Parameters.AddWithValue("@Password", user.Password);
+
+            try
+            {
+                conn.Open();
+                using SqlDataReader reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    return new DTOUserLoginResult
+                    {
+                        UserID = reader.GetInt32(reader.GetOrdinal("UserID")),
+                        PersonID = reader.GetInt32(reader.GetOrdinal("PersonID")),
+                        FullName = reader.GetString(reader.GetOrdinal("FullName"))
+                    };
+                }
+                else
+                {
+                    throw new Exception("Invalid email or password.");
+                }
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception("An error occurred while logging in.", ex);
             }
         }
     }

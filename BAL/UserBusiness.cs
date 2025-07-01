@@ -1,5 +1,6 @@
 ﻿using DAL;
 using DAL.DTOs;
+using Microsoft.Data.SqlClient;
 
 
 namespace BAL
@@ -57,6 +58,37 @@ namespace BAL
                 throw new ApplicationException($"Service error while deleting user with ID {userId}.", ex);
             }
         }
+        public static DTOUserCreated CreateUser(DTOUserSignUp user)
+        {
+            try
+            {
+                return UserData.CreateUser(user);
+            }
+            catch (SqlException ex) when (ex.Message.Contains("البريد الإلكتروني مستخدم"))
+            {
+                throw new ApplicationException("The email is already in use.");
+            }
+            catch (Exception ex)
+            {
+                throw new ApplicationException("Service error while creating user.", ex);
+            }
+        }
 
+
+        public static DTOUserLoginResult Login(DTOUserLogin user)
+        {
+            try
+            {
+                return UserData.Login(user);
+            }
+            catch (SqlException ex) when (ex.Message.Contains("البريد الإلكتروني أو كلمة المرور غير صحيحة"))
+            {
+                throw new ApplicationException("Invalid email or password.");
+            }
+            catch (Exception ex)
+            {
+                throw new ApplicationException("Service error while logging in.", ex);
+            }
+        }
     }
 }

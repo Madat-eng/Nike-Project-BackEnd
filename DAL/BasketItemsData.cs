@@ -158,5 +158,26 @@ namespace DAL
                 throw new Exception("Error while deleting basket item.", ex);
             }
         }
+
+        public static void AddItemToTheBasket(DTOBasketItems_Add item)
+        {
+            using SqlConnection conn = new SqlConnection(setting.Connection);
+            using SqlCommand cmd = new SqlCommand("SP_AddItemToTheBasket", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("@UserID", item.UserID);
+            cmd.Parameters.AddWithValue("@ProductID", item.ProductID);
+            cmd.Parameters.AddWithValue("@Quantity", item.Quantity);
+
+            try
+            {
+                conn.Open();
+                cmd.ExecuteNonQuery();
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception("An error occurred while adding item to the basket.", ex);
+            }
+        }
     }
 }

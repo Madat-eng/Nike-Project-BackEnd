@@ -94,5 +94,22 @@ namespace API.Controllers
                 return StatusCode(500, new { message = ex.Message });
             }
         }
+
+
+        [HttpGet("{userID}/Items")]
+        [ProducesResponseType(typeof(List<DTOBasketItemDetails>), 200)]
+        [ProducesResponseType(typeof(string), 500)]
+        public IActionResult GetBasketItems(int userID)
+        {
+            try
+            {
+                var items = BasketBusiness.GetBasketItems(userID);
+                return Ok(items);
+            }
+            catch (ApplicationException ex)
+            {
+                return StatusCode(500, new { message = ex.Message });
+            }
+        }
     }
 }

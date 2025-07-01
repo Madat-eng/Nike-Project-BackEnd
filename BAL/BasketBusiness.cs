@@ -69,5 +69,17 @@ namespace BAL
                 throw new ApplicationException("Service error while deleting basket.", ex);
             }
         }
+
+        public static List<DTOBasketItemDetails> GetBasketItems(int userID)
+        {
+            try
+            {
+                return BasketData.GetBasketItems(userID);
+            }
+            catch (Exception ex)
+            {
+                throw new ApplicationException($"Service error while fetching basket items for user {userID}.", ex);
+            }
+        }
     }
 }

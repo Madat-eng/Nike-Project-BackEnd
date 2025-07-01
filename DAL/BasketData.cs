@@ -160,5 +160,54 @@ namespace DAL
                 throw new Exception("An error occurred while deleting the basket.", ex);
             }
         }
+
+        public static List<DTOBasketItemDetails> GetBasketItems(int userID)
+        {
+            List<DTOBasketItemDetails> items = new List<DTOBasketItemDetails>();
+
+            using SqlConnection conn = new SqlConnection(setting.Connection);
+            using SqlCommand cmd = new SqlCommand("SP_GetBasketItems", conn);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@UserID", userID);
+
+            try
+            {
+
+                /*
+                    public DTOBasketItemDetails(int basketID, int productID, string productName, int quantity, decimal price, decimal totalPrice)
+                    {
+                        BasketID = basketID;
+                        ProductID = productID;
+                        ProductName = productName;
+                        Quantity = quantity;
+                        Price = price;
+                        TotalPrice = totalPrice;
+                    }
+                 */
+                conn.Open();
+                using SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    DTOBasketItemDetails item = new DTOBasketItemDetails(
+                        basketItemID: reader.GetInt32(reader.GetOrdinal("BasketItemID")),
+                        basketID: reader.GetInt32(reader.GetOrdinal("BasketID")),
+                        productID: reader.GetInt32(reader.GetOrdinal("ProductID")),
+                        productName: reader.GetString(reader.GetOrdinal("Name")),
+                        quantity: reader.GetInt32(reader.GetOrdinal("Quantity")),
+                        price: reader.GetDecimal(reader.GetOrdinal("Price")),
+                        totalPrice: reader.GetDecimal(reader.GetOrdinal("TotalPrice")),
+                         imageURL: reader.GetString(reader.GetOrdinal("ImageURL"))
+                            );
+
+                    items.Add(item);
+                }
+
+                return items;
+            }
+            catch (SqlException ex)
+            {
+                throw new Exception("An error occurred while retrieving basket items.", ex);
+            }
+        }
     }
 }

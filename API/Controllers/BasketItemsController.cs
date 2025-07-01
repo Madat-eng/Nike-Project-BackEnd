@@ -94,5 +94,21 @@ namespace API.Controllers
                 return StatusCode(500, new { message = ex.Message });
             }
         }
+
+        [HttpPost("AddItem")]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(typeof(string), 500)]
+        public IActionResult AddItemToTheBasket([FromBody] DTOBasketItems_Add item)
+        {
+            try
+            {
+                BasketItemsBusiness.AddItemToTheBasket(item);
+                return Ok(new { message = "Item added to the basket successfully." });
+            }
+            catch (ApplicationException ex)
+            {
+                return StatusCode(500, new { message = ex.Message });
+            }
+        }
     }
 }

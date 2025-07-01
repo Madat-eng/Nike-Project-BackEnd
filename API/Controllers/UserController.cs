@@ -92,5 +92,53 @@ namespace API.Controllers
                 return StatusCode(500, new { message = ex.Message });
             }
         }
+
+
+        [HttpPost("SignUp")]
+        [ProducesResponseType(typeof(DTOUserCreated), 200)]
+        [ProducesResponseType(typeof(string), 400)]
+        [ProducesResponseType(typeof(string), 500)]
+        public IActionResult SignUp([FromBody] DTOUserSignUp user)
+        {
+            try
+            {
+                var createdUser = UserBusiness.CreateUser(user);
+                return Ok(createdUser);
+            }
+            catch (ApplicationException ex) when (ex.Message.Contains("email"))
+            {
+                return BadRequest(new { message = ex.Message });
+            }
+            catch (ApplicationException ex)
+            {
+                return StatusCode(500, new { message = ex.Message });
+            }
+        }
+
+
+        [HttpPost("Login")]
+        [ProducesResponseType(typeof(DTOUserLoginResult), 200)]
+        [ProducesResponseType(typeof(string), 400)]
+        [ProducesResponseType(typeof(string), 500)]
+        public IActionResult Login([FromBody] DTOUserLogin user)
+        {
+            try
+            {
+                var loginResult = UserBusiness.Login(user);
+                return Ok(loginResult);
+            }
+            catch (ApplicationException ex) when (ex.Message.Contains("Invalid email or password"))
+            {
+                return BadRequest(new { message = ex.Message });
+            }
+            catch (ApplicationException ex)
+            {
+                return StatusCode(500, new { message = ex.Message });
+            }
+        }
     }
+
+
+
+
 }

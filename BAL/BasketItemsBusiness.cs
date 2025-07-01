@@ -69,5 +69,17 @@ namespace BAL
                 throw new ApplicationException("Service error while deleting basket item.", ex);
             }
         }
+
+        public static void AddItemToTheBasket(DTOBasketItems_Add item)
+        {
+            try
+            {
+                BasketItemsData.AddItemToTheBasket(item);
+            }
+            catch (Exception ex)
+            {
+                throw new ApplicationException("Service error while adding item to the basket.", ex);
+            }
+        }
     }
 }
